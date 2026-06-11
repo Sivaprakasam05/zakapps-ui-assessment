@@ -138,7 +138,7 @@ This project was developed to demonstrate:
 
 **Siva Prakasam**
 
-GitHub: https://github.com/yourusername
+GitHub: https://github.com/Sivaprakasam05
 
 ---
 
