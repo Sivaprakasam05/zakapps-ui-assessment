@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Register – MotorVault</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚘</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        .auth-wrapper {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0a0a0a;
+            padding: 2rem 1rem;
+        }
+
+        .auth-card {
+            background: #141414;
+            border: 1px solid #2a2a2a;
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .auth-logo {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .auth-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 0 0 0.4rem;
+        }
+
+        .auth-sub {
+            text-align: center;
+            font-size: 0.875rem;
+            color: #888;
+            margin: 0 0 2rem;
+        }
+
+        .auth-sub a {
+            color: #e63946;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .auth-sub a:hover {
+            text-decoration: underline;
+        }
+
+        .name-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #aaa;
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .input-wrap {
+            position: relative;
+        }
+
+        .input-wrap i {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .input-wrap input {
+            width: 100%;
+            background: #1e1e1e;
+            border: 1px solid #2a2a2a;
+            border-radius: 10px;
+            padding: 0.75rem 2.8rem 0.75rem 2.6rem;
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border 0.2s;
+            box-sizing: border-box;
+        }
+
+        .input-wrap input:focus {
+            border-color: #e63946;
+        }
+
+        .input-wrap input::placeholder {
+            color: #555;
+        }
+
+        .toggle-pw {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #555;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .toggle-pw:hover {
+            color: #aaa;
+        }
+
+        .strength-bar {
+            height: 4px;
+            border-radius: 4px;
+            background: #2a2a2a;
+            margin-top: 6px;
+            overflow: hidden;
+        }
+
+        .strength-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.3s, background 0.3s;
+            width: 0%;
+        }
+
+        .strength-text {
+            font-size: 0.75rem;
+            margin-top: 4px;
+            color: #555;
+        }
+
+        .terms-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: #aaa;
+            cursor: pointer;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+
+        .terms-label input[type="checkbox"] {
+            accent-color: #e63946;
+            width: 15px;
+            height: 15px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .terms-label a {
+            color: #e63946;
+            text-decoration: none;
+        }
+
+        .terms-label a:hover {
+            text-decoration: underline;
+        }
+
+        .auth-btn {
+            width: 100%;
+            padding: 0.85rem;
+            background: #e63946;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            letter-spacing: 0.02em;
+        }
+
+        .auth-btn:hover {
+            background: #c1121f;
+        }
+
+        .auth-btn:active {
+            transform: scale(0.98);
+        }
+
+        .auth-msg {
+            margin-top: 1rem;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            display: none;
+        }
+
+        .auth-msg.error {
+            background: #2d0a0a;
+            color: #ff6b6b;
+            border: 1px solid #5c1a1a;
+            display: block;
+        }
+
+        .auth-msg.success {
+            background: #0a2d14;
+            color: #6bffaa;
+            border: 1px solid #1a5c34;
+            display: block;
+        }
+
+        .back-home {
+            display: block;
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .back-home:hover {
+            color: #aaa;
+        }
+
+        @media (max-width: 480px) {
+            .auth-card {
+                padding: 2rem 1.25rem;
+            }
+
+            .name-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="auth-wrapper">
+        <div class="auth-card">
+            <div class="auth-logo">🚘</div>
+            <h1 class="auth-title">Create account</h1>
+            <p class="auth-sub">Already have an account? <a href="login.html">Login</a></p>
+
+            <div class="name-row">
+                <div class="form-group">
+                    <label for="firstName">First name</label>
+                    <div class="input-wrap">
+                        <i class="fa-regular fa-user"></i>
+                        <input type="text" id="firstName" placeholder="John" autocomplete="given-name" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last name</label>
+                    <div class="input-wrap">
+                        <i class="fa-regular fa-user"></i>
+                        <input type="text" id="lastName" placeholder="Doe" autocomplete="family-name" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="regEmail">Email</label>
+                <div class="input-wrap">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" id="regEmail" placeholder="you@example.com" autocomplete="email" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="regPassword">Password</label>
+                <div class="input-wrap">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="regPassword" placeholder="Min. 6 characters" autocomplete="new-password"
+                        oninput="checkStrength(this.value)" />
+                    <button class="toggle-pw" onclick="togglePw('regPassword', this)" type="button"
+                        aria-label="Show password">
+                        <i class="fa-regular fa-eye"></i>
+                    </button>
+                </div>
+                <div class="strength-bar">
+                    <div class="strength-fill" id="strengthFill"></div>
+                </div>
+                <p class="strength-text" id="strengthText"></p>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm password</label>
+                <div class="input-wrap">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="confirmPassword" placeholder="Repeat your password"
+                        autocomplete="new-password" />
+                    <button class="toggle-pw" onclick="togglePw('confirmPassword', this)" type="button"
+                        aria-label="Show password">
+                        <i class="fa-regular fa-eye"></i>
+                    </button>
+                </div>
+            </div>
+
+            <label class="terms-label">
+                <input type="checkbox" id="agreeTerms" />
+                I agree to the <a href="#" onclick="return false;">Terms of Service</a> and <a href="#"
+                    onclick="return false;">Privacy Policy</a>
+            </label>
+
+            <button class="auth-btn" onclick="handleRegister()">Create Account</button>
+            <div class="auth-msg" id="regMsg"></div>
+
+            <a href="index.html" class="back-home">← Back to MotorVault</a>
+        </div>
+    </div>
+
+    <script>
+        function togglePw(id, btn) {
+            const input = document.getElementById(id);
+            const icon = btn.querySelector('i');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.className = 'fa-regular fa-eye-slash';
+            } else {
+                input.type = 'password';
+                icon.className = 'fa-regular fa-eye';
+            }
+        }
+
+        function checkStrength(val) {
+            const fill = document.getElementById('strengthFill');
+            const text = document.getElementById('strengthText');
+            let score = 0;
+            if (val.length >= 6) score++;
+            if (val.length >= 10) score++;
+            if (/[A-Z]/.test(val)) score++;
+            if (/[0-9]/.test(val)) score++;
+            if (/[^A-Za-z0-9]/.test(val)) score++;
+
+            const levels = [
+                { w: '0%', color: '#2a2a2a', label: '' },
+                { w: '25%', color: '#e63946', label: 'Weak' },
+                { w: '50%', color: '#f4a261', label: 'Fair' },
+                { w: '75%', color: '#2a9d8f', label: 'Good' },
+                { w: '100%', color: '#27ae60', label: 'Strong' },
+            ];
+            const lvl = val.length === 0 ? 0 : Math.min(score, 4);
+            fill.style.width = levels[lvl].w;
+            fill.style.background = levels[lvl].color;
+            text.textContent = levels[lvl].label;
+            text.style.color = levels[lvl].color;
+        }
+
+        function handleRegister() {
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('regEmail').value.trim();
+            const password = document.getElementById('regPassword').value.trim();
+            const confirm = document.getElementById('confirmPassword').value.trim();
+            const agreed = document.getElementById('agreeTerms').checked;
+            const msg = document.getElementById('regMsg');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            msg.className = 'auth-msg';
+
+            if (!firstName || !lastName || !email || !password || !confirm) {
+                msg.textContent = '⚠️ Please fill in all fields.';
+                msg.classList.add('error'); return;
+            }
+            if (!emailRegex.test(email)) {
+                msg.textContent = '⚠️ Please enter a valid email address.';
+                msg.classList.add('error'); return;
+            }
+            if (password.length < 6) {
+                msg.textContent = '⚠️ Password must be at least 6 characters.';
+                msg.classList.add('error'); return;
+            }
+            if (password !== confirm) {
+                msg.textContent = '⚠️ Passwords do not match.';
+                msg.classList.add('error'); return;
+            }
+            if (!agreed) {
+                msg.textContent = '⚠️ Please agree to the Terms of Service.';
+                msg.classList.add('error'); return;
+            }
+
+            const users = JSON.parse(localStorage.getItem('mv_users') || '[]');
+            if (users.find(u => u.email === email)) {
+                msg.textContent = '⚠️ This email is already registered. Try logging in.';
+                msg.classList.add('error'); return;
+            }
+
+            users.push({ firstName, lastName, email, password });
+            localStorage.setItem('mv_users', JSON.stringify(users));
+
+            msg.textContent = '✓ Account created! Redirecting to login...';
+            msg.classList.add('success');
+            setTimeout(() => { window.location.href = 'login.html'; }, 1500);
+        }
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Enter') handleRegister();
+        });
+    </script>
+
+</body>
+
+</html>

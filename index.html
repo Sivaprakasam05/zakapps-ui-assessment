@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>MotorVault – Find Your Dream Car</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚘</text></svg>">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <a class="logo" href="index.html">
+        <div class="logo-icon">🚘</div>MotorVault
+      </a>
+      <nav class="nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="listing.html" class="has-drop">Shop</a>
+        <a href="#about">About</a>
+        <a href="#about">Contact</a>
+      </nav>
+      <div class="header-right">
+        <a class="login-link" href="login.html">Login / Register</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        <button class="icon-btn" title="Search">🔍</button>
+        <button class="icon-btn" id="cartBtn" title="Cart">
+          🛒<span class="cart-badge" id="cartBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="listing.html">Shop</a>
+    <a href="#about">About</a>
+    <a href="#about">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <span class="hero-tag">New Cars 2026</span>
+      <h1 class="hero-title">
+        Drive with<br><span>Pure Passion</span><br>&amp; Precision
+      </h1>
+      <p class="hero-sub">
+        Browse premium sports cars, muscle cars, electric vehicles and more from the world's top manufacturers.
+      </p>
+      <a href="listing.html" class="hero-cta">Browse Cars</a>
+      <p class="hero-shipping">🚚 Free delivery &amp; registration assistance on every purchase</p>
+    </div>
+    <div class="hero-right">🏎️💨</div>
+  </section>
+
+  <!-- TAG PILLS -->
+  <div class="tag-row">
+    <span class="tag-pill"><span class="dot"></span>Sports Cars</span>
+    <span class="tag-pill"><span class="dot"></span>Muscle Cars</span>
+    <span class="tag-pill"><span class="dot"></span>Electric Vehicles</span>
+    <span class="tag-pill"><span class="dot"></span>Performance Wagons</span>
+    <span class="tag-pill"><span class="dot"></span>Hot Hatches</span>
+  </div>
+
+  <!-- STORY STRIP -->
+  <div class="story-strip">
+    <a href="listing.html" class="story-card">
+      <div class="story-thumb">🚗</div>
+      <p class="story-label">New Arrivals</p>
+    </a>
+    <a href="listing.html" class="story-card">
+      <div class="story-thumb">🔥</div>
+      <p class="story-label">Best Deals</p>
+    </a>
+  </div>
+
+  <!-- BEST SELLERS -->
+  <div class="section">
+    <h2 class="section-title">🏆 Featured Cars</h2>
+    <div class="products-grid" id="bestSellers"></div>
+  </div>
+
+  <!-- VIDEO -->
+  <div class="video-section">
+    <div class="video-embed">
+      <iframe src="https://www.youtube.com/embed/DZAdVY9kKbc?rel=0&modestbranding=1" title="Car Video" allowfullscreen>
+      </iframe>
+    </div>
+    <p class="video-title">Experience the Power of Precision Engineering</p>
+    <p class="video-sub">Watch our featured cars in action</p>
+  </div>
+
+  <!-- PRESS -->
+  <div class="press-section">
+    <div class="press-logos">
+      <span class="press-logo">MotorVault India</span>
+      <span class="press-logo">Top Gear</span>
+      <span class="press-logo">Overdrive</span>
+      <span class="press-logo">CarWale</span>
+      <span class="press-logo">Motor Trend</span>
+      <span class="press-logo">EVO Magazine</span>
+      <span class="press-logo">Wheels 24</span>
+    </div>
+  </div>
+
+  <!-- NEWSLETTER -->
+  <div class="newsletter">
+    <p class="newsletter-title">📬 Subscribe to Our Newsletter</p>
+    <p>Get the latest launches, deals, and car news delivered to your inbox.</p>
+    <div class="newsletter-form">
+      <input type="email" id="newsletterEmail" placeholder="Enter your email address" />
+      <button onclick="handleSubscribe()">Subscribe</button>
+    </div>
+    <p id="newsletterMsg" style="display:none; margin-top:10px; font-size:14px;"></p>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="about">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Links</h4>
+        <a href="#">About Us</a><a href="#">Contact Us</a>
+        <a href="#">Customer Service</a><a href="#">FAQs</a><a href="#">Sitemap</a>
+      </div>
+      <div class="footer-col">
+        <h4>Information</h4>
+        <a href="#">Terms of Service</a>
+        <a href="#">Refund Policy</a><a href="#">Press</a>
+      </div>
+    </div>
+    <div class="social-icons">
+      <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 MotorVault. All rights reserved.</span>
+      <div class="pay-badges">
+        <span class="pay-badge">VISA</span>
+        <span class="pay-badge">Mastercard</span>
+        <span class="pay-badge">UPI</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/index.js"></script>
+</body>
+
+</html>

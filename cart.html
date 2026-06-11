@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Cart – MotorVault</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚘</text></svg>">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <a class="logo" href="index.html">
+        <div class="logo-icon">🚘</div>MotorVault
+      </a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="listing.html" class="has-drop">Shop</a>
+        <a href="#about">About</a>
+        <a href="#about">Contact</a>
+      </nav>
+      <div class="header-right">
+        <a class="login-link" href="#">Login / Register</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        <button class="icon-btn" title="Search">🔍</button>
+        <button class="icon-btn" id="cartBtn" title="Cart">
+          🛒<span class="cart-badge" id="cartBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="listing.html">Shop</a>
+    <a href="#about">About</a>
+    <a href="#about">Contact</a>
+  </div>
+
+  <div class="cart-page">
+    <h2 class="cart-page-title">🛒 Your Cart</h2>
+    <div id="cartContent"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer footer-with-margin" id="about">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Links</h4>
+        <a href="#">About Us</a><a href="#">Contact Us</a>
+        <a href="#">Customer Service</a><a href="#">FAQs</a>
+      </div>
+      <div class="footer-col">
+        <h4>Information</h4>
+        <a href="#">Terms of Service</a><a href="#">Refund Policy</a><a href="#">Press</a>
+      </div>
+    </div>
+    <div class="social-icons">
+      <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-youtube"></i></a>
+      <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 MotorVault. All rights reserved.</span>
+      <div class="pay-badges"><span class="pay-badge">VISA</span><span class="pay-badge">UPI</span></div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script>
+    (function () {
+      var btn = document.getElementById("hamburger");
+      var menu = document.getElementById("mobileMenu");
+      if (!btn || !menu) return;
+      btn.addEventListener("click", function () {
+        btn.classList.toggle("open");
+        menu.classList.toggle("open");
+        document.body.style.overflow = menu.classList.contains("open") ? "hidden" : "";
+      });
+      menu.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", function () {
+          btn.classList.remove("open");
+          menu.classList.remove("open");
+          document.body.style.overflow = "";
+        });
+      });
+    })();
+  </script>
+
+</body>
+
+</html>

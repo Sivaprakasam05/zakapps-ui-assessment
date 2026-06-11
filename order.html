@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Order Placed – MotorVault</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚘</text></svg>">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <a class="logo" href="index.html">
+        <div class="logo-icon">🚘</div>MotorVault
+      </a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="listing.html" class="has-drop">Shop</a>
+        <a href="#about">About</a>
+        <a href="#about">Contact</a>
+      </nav>
+      <div class="header-right">
+        <a class="login-link" href="login.html">Login / Register</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        <button class="icon-btn" title="Search">🔍</button>
+        <button class="icon-btn" id="cartBtn" title="Cart">
+          🛒<span class="cart-badge" id="cartBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="listing.html">Shop</a>
+    <a href="#about">About</a>
+    <a href="#about">Contact</a>
+  </div>
+
+  <div class="order-page">
+    <div class="order-card">
+
+      <div class="order-icon">✅</div>
+      <h2 class="order-title">Order Placed!</h2>
+      <p class="order-sub">
+        Thank you for your purchase! Your order has been confirmed and a representative will contact you within 24 hours
+        to arrange delivery.
+      </p>
+
+      <!-- Order Steps -->
+      <div class="order-steps">
+        <div class="ostep">
+          <div class="ostep-dot">✓</div>
+          <div class="ostep-label">Order<br>Confirmed</div>
+        </div>
+        <div class="ostep">
+          <div class="ostep-dot inactive">2</div>
+          <div class="ostep-label">Documents<br>Processing</div>
+        </div>
+        <div class="ostep">
+          <div class="ostep-dot inactive">3</div>
+          <div class="ostep-label">Car<br>Delivery</div>
+        </div>
+      </div>
+
+      <!-- Product Preview -->
+      <div class="order-product-preview">
+        <div class="opp-emoji" id="oppEmoji">🏎️</div>
+        <div>
+          <div class="opp-name" id="oppName">Car Name</div>
+          <div class="opp-price" id="oppPrice">₹0</div>
+        </div>
+      </div>
+
+      <div class="order-id-box" id="orderIdBox">Order ID: ORD-XXXXXX</div>
+
+      <div class="order-actions">
+        <button class="btn-continue" id="continueBtn">Continue Shopping</button>
+        <button class="btn-continue btn-continue-dark" id="homeBtn">Back to Home</button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/order.js"></script>
+  <script>
+    (function () {
+      var btn = document.getElementById("hamburger");
+      var menu = document.getElementById("mobileMenu");
+      if (!btn || !menu) return;
+      btn.addEventListener("click", function () {
+        btn.classList.toggle("open");
+        menu.classList.toggle("open");
+        document.body.style.overflow = menu.classList.contains("open") ? "hidden" : "";
+      });
+      menu.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", function () {
+          btn.classList.remove("open");
+          menu.classList.remove("open");
+          document.body.style.overflow = "";
+        });
+      });
+    })();
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Car Detail – MotorVault</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚘</text></svg>">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <a class="logo" href="index.html">
+        <div class="logo-icon">🚘</div>MotorVault
+      </a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="listing.html" class="active has-drop">Shop</a>
+        <a href="#about">About</a>
+        <a href="#about">Contact</a>
+      </nav>
+      <div class="header-right">
+        <a class="login-link" href="login.html">Login / Register</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        <button class="icon-btn" title="Search">🔍</button>
+        <button class="icon-btn" id="cartBtn" title="Cart">
+          🛒<span class="cart-badge" id="cartBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="listing.html">Shop</a>
+    <a href="#about">About</a>
+    <a href="#about">Contact</a>
+  </div>
+
+  <div class="detail-wrap">
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <a href="listing.html">Shop</a>
+      <span>›</span>
+      <span id="bcProduct">Car</span>
+    </div>
+
+    <!-- DETAIL GRID -->
+    <div class="detail-grid">
+
+      <!-- LEFT: Images -->
+      <div class="detail-imgs">
+        <div class="main-img" id="mainImg"></div>
+      </div>
+
+      <!-- RIGHT: Info -->
+      <div class="detail-info">
+        <h1 class="detail-name" id="detailName">Loading…</h1>
+
+        <div class="price-row">
+          <span class="detail-price" id="dPrice">₹0</span>
+          <span class="detail-old" id="dOld"></span>
+        </div>
+
+        <div class="detail-stars" id="dStars"></div>
+
+        <p class="detail-desc" id="dDesc"></p>
+
+        <div class="detail-actions">
+          <button class="btn-cart" id="btnCart">ADD TO CART</button>
+          <button class="btn-buy" id="btnBuy">Buy Now</button>
+        </div>
+
+        <div class="share-row">
+          <span>Share:</span>
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+
+        <div class="tags-list" id="tagsList"></div>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="tabDesc">DESCRIPTION</button>
+      <button class="tab-btn" data-tab="tabReviews">REVIEWS</button>
+      <button class="tab-btn" data-tab="tabVideo">VIDEO</button>
+      <button class="tab-btn" data-tab="tabComments">COMMENTS</button>
+    </div>
+
+    <div class="tab-pane active" id="tabDesc">
+      <p id="tabDescText"></p>
+      <br>
+      <ul>
+        <li><strong>Category:</strong> <span id="tabCat"></span></li>
+        <li><strong>Brand:</strong> <span id="tabBrand"></span></li>
+        <li><strong>Type:</strong> <span id="tabType"></span></li>
+        <li>All vehicles are sourced from authorised dealerships and come with manufacturer warranty.</li>
+        <li>Test drives available on request. Finance &amp; insurance options available.</li>
+      </ul>
+    </div>
+    <div class="tab-pane" id="tabReviews">
+      <p>⭐⭐⭐⭐⭐ — <strong>Incredible machine!</strong> Delivery was smooth and the car was exactly as described. Highly
+        recommended.</p><br>
+      <p>⭐⭐⭐⭐☆ — <strong>Great experience.</strong> Would recommend MotorVault to any car enthusiast looking for a
+        hassle-free purchase.</p><br>
+      <p>⭐⭐⭐⭐⭐ — <strong>Premium quality.</strong> Worth every rupee. Already enquiring about my next purchase!</p>
+    </div>
+    <div class="tab-pane" id="tabVideo">
+      <div class="video-tab-box">
+        ▶ Watch Vehicle Tour Video
+      </div>
+    </div>
+    <div class="tab-pane" id="tabComments">
+      <p>No comments yet. Be the first to leave a comment!</p>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="about" class="footer footer-with-margin">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Links</h4>
+        <a href="#">About Us</a><a href="#">Contact Us</a>
+        <a href="#">Customer Service</a><a href="#">FAQs</a>
+      </div>
+      <div class="footer-col">
+        <h4>Information</h4>
+        <a href="#">Terms of Service</a><a href="#">Refund Policy</a><a href="#">Press</a>
+      </div>
+    </div>
+    <div class="social-icons">
+      <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-youtube"></i></a>
+      <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 MotorVault. All rights reserved.</span>
+      <div class="pay-badges"><span class="pay-badge">VISA</span><span class="pay-badge">UPI</span></div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/detail.js"></script>
+  <script>
+    (function () {
+      var btn = document.getElementById("hamburger");
+      var menu = document.getElementById("mobileMenu");
+      if (!btn || !menu) return;
+      btn.addEventListener("click", function () {
+        btn.classList.toggle("open");
+        menu.classList.toggle("open");
+        document.body.style.overflow = menu.classList.contains("open") ? "hidden" : "";
+      });
+      menu.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", function () {
+          btn.classList.remove("open");
+          menu.classList.remove("open");
+          document.body.style.overflow = "";
+        });
+      });
+    })();
+  </script>
+
+</body>
+
+</html>

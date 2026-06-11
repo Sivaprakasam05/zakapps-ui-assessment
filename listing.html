@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Shop Cars – MotorVault</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚘</text></svg>">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <a class="logo" href="index.html">
+        <div class="logo-icon">🚘</div>MotorVault
+      </a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="listing.html" class="active has-drop">Shop</a>
+        <a href="#about">About</a>
+        <a href="#about">Contact</a>
+      </nav>
+      <div class="header-right">
+        <a class="login-link" href="login.html">Login / Register</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        <button class="icon-btn" title="Search">🔍</button>
+        <button class="icon-btn" id="cartBtn" title="Cart">
+          🛒<span class="cart-badge" id="cartBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="listing.html">Shop</a>
+    <a href="#about">About</a>
+    <a href="#about">Contact</a>
+  </div>
+
+  <!-- PAGE BANNER -->
+  <div class="page-banner">
+    <div class="banner-cars">🚗🏎️🚙🚕🚗🏎️</div>
+    <div class="page-banner-inner">
+      <h1>🚗 CARS FOR SALE</h1>
+      <p>Browse our full range of premium automobiles</p>
+    </div>
+  </div>
+
+  <div class="listing-wrap">
+
+    <!-- TOOLBAR -->
+    <div class="toolbar">
+      <div class="toolbar-left">
+        <span class="prod-count" id="prodCount">Cars (8)</span>
+        <div class="view-btns">
+          <button class="vbtn active" id="gridBtn" title="Grid">⊞</button>
+          <button class="vbtn" id="listBtn" title="List">☰</button>
+        </div>
+      </div>
+      <div class="toolbar-right">
+        <button class="filter-btn" id="filterToggle">▼ Filter</button>
+        <select class="sort-sel" id="sortSel">
+          <option value="az">Sort By: Alphabetically, A–Z</option>
+          <option value="za">Alphabetically, Z–A</option>
+          <option value="pl">Price: Low to High</option>
+          <option value="ph">Price: High to Low</option>
+          <option value="rd">Best Rated</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- ACTIVE FILTERS -->
+    <div class="active-filters" id="activeTags"></div>
+
+    <!-- FILTER PANEL -->
+    <div class="filter-panel" id="filterPanel">
+      <div class="filter-grid">
+        <div class="fg">
+          <h4>Category</h4>
+          <label class="foption"><input type="checkbox" class="fc" value="Sports Cars" /> Sports Cars</label>
+          <label class="foption"><input type="checkbox" class="fc" value="Muscle Cars" /> Muscle Cars</label>
+          <label class="foption"><input type="checkbox" class="fc" value="Hot Hatches" /> Hot Hatches</label>
+          <label class="foption"><input type="checkbox" class="fc" value="Performance Wagons" /> Performance
+            Wagons</label>
+          <label class="foption"><input type="checkbox" class="fc" value="Electric Cars" /> Electric Cars</label>
+        </div>
+
+        <div class="fg">
+          <h4>Type</h4>
+          <label class="foption"><input type="checkbox" class="ft" value="New" /> New Car</label>
+        </div>
+
+        <div class="fg">
+          <h4>Rating</h4>
+          <label class="foption"><input type="checkbox" class="fr" value="4" /> ★★★★☆ 4 &amp; up</label>
+          <label class="foption"><input type="checkbox" class="fr" value="4.5" /> ★★★★✦ 4.5 &amp; up</label>
+          <label class="foption"><input type="checkbox" class="fr" value="5" /> ★★★★★ 5 Stars only</label>
+          <h4>Brand</h4>
+          <label class="foption"><input type="checkbox" class="fb" value="Toyota" /> Toyota</label>
+          <label class="foption"><input type="checkbox" class="fb" value="BMW" /> BMW</label>
+          <label class="foption"><input type="checkbox" class="fb" value="Mercedes-AMG" /> Mercedes-AMG</label>
+          <label class="foption"><input type="checkbox" class="fb" value="Porsche" /> Porsche</label>
+          <label class="foption"><input type="checkbox" class="fb" value="Ford" /> Ford</label>
+          <label class="foption"><input type="checkbox" class="fb" value="Audi" /> Audi</label>
+          <label class="foption"><input type="checkbox" class="fb" value="Honda" /> Honda</label>
+          <label class="foption"><input type="checkbox" class="fb" value="Hyundai" /> Hyundai</label>
+        </div>
+      </div>
+      <div class="filter-actions">
+        <button class="btn-reset" id="resetBtn">Reset All</button>
+        <button class="btn-apply" id="applyBtn">Apply Filters</button>
+      </div>
+    </div>
+
+    <!-- PRODUCT GRID -->
+    <div class="listing-grid" id="listingGrid"></div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer footer-with-margin" id="about">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Links</h4>
+        <a href="#">About Us</a><a href="#">Contact Us</a>
+        <a href="#">Customer Service</a><a href="#">FAQs</a>
+      </div>
+      <div class="footer-col">
+        <h4>Information</h4>
+        <a href="#">Terms of Service</a><a href="#">Refund Policy</a><a href="#">Press</a>
+      </div>
+    </div>
+    <div class="social-icons">
+      <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-youtube"></i></a>
+      <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 MotorVault. All rights reserved.</span>
+      <div class="pay-badges"><span class="pay-badge">VISA</span><span class="pay-badge">UPI</span></div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/listing.js"></script>
+  <script>
+    (function () {
+      var btn = document.getElementById("hamburger");
+      var menu = document.getElementById("mobileMenu");
+      if (!btn || !menu) return;
+      btn.addEventListener("click", function () {
+        btn.classList.toggle("open");
+        menu.classList.toggle("open");
+        document.body.style.overflow = menu.classList.contains("open") ? "hidden" : "";
+      });
+      menu.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", function () {
+          btn.classList.remove("open");
+          menu.classList.remove("open");
+          document.body.style.overflow = "";
+        });
+      });
+    })();
+  </script>
+
+</body>
+
+</html>
